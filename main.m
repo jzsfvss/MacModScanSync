@@ -1,13 +1,4 @@
 %_________________________________________________________________________________________
-% Package name		Macula Modeller and Scan Synchronizer
-% Language			MATLAB
-% Author			József Vass <jozsef.vass@outlook.com>
-% Clients			Andrew Symons <andrewsymons@gmail.com>
-%					Joos Meyer <joos.meyer@gmail.com>
-% Version date		Oct. 20, 2020
-% Stage 			Milestone 8 on Upwork
-%‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-%_________________________________________________________________________________________
 % Initialization
 %‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 global citer
