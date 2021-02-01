@@ -6,9 +6,6 @@ Project for    Andrew Symons <andrewsymons@gmail.com>
                Joos Meyer <joos.meyer@gmail.com>
 Version date   Oct. 20, 2020
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-_____________________________________
-Macula Modeller and Scan Synchronizer
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 Purpose
 ‾‾‾‾‾‾‾
 This software package was created to handle the following tasks:
