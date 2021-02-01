@@ -50,41 +50,41 @@ Subroutine dependency tree
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 main                    Main program launching the menu, and calling the subroutines.
 
-MyHexaColor       Converts hexagesimal color code to MATLAB convention.
-OptSel         Prompts a selection from a text menu of options.
+MyHexaColor             Converts hexagesimal color code to MATLAB convention.
+OptSel                  Prompts a selection from a text menu of options.
 OptSel2                 Prompts a selection from a numerical menu of options.
-DataImport     Imports raw / processed data files.
-   OptSel      See above.
-   OptSel2     See above.
-   MyStr2Num      The built-in str2num generalized to "n/a" values.
+DataImport              Imports raw / processed data files.
+   OptSel               See above.
+   OptSel2              See above.
+   MyStr2Num            The built-in str2num generalized to "n/a" values.
 DataMissingValues       Fills in missing values in the raw data via interpolation.
-SurfSym     Symmetrizes the NFL layer in the x-direction (A scans).
-   ModelAxis2D       Estimates the axis of a cross-section giving the best symmetry.
+SurfSym                 Symmetrizes the NFL layer in the x-direction (A scans).
+   ModelAxis2D          Estimates the axis of a cross-section giving the best symmetry.
       MyFindPeaks       The findpeaks function generalized to account for global extrema.
-PlotLayer      Plots a layer in 3D relative to another.
-DataStats      Calculates some statistics for the loaded data.
-ImgImport      Imports a cross-section image file from Imgs.
-   OptSel      See above.
-ModelAxis2D       See above.
+PlotLayer               Plots a layer in 3D relative to another.
+DataStats               Calculates some statistics for the loaded data.
+ImgImport               Imports a cross-section image file from Imgs.
+   OptSel               See above.
+ModelAxis2D             See above.
 Model_DoG2D             2D modelling (optimization) of a cross-section with DoG.
    Function_DoG2D       2D DoG function.
    MyR2                 Finds the coefficient of determination.
-ModelAxis3D       Estimates the axis of a layer.
-   ModelAxis2D       See above.
-FitCircle      Fits a circle to a set of points in the 2D plane.
-ModInt         Computes the residue of a real number w.r.t. an interval.
-Model_DoG3D_Ell   3D modelling of a layer with elliptical DoG.
+ModelAxis3D             Estimates the axis of a layer.
+   ModelAxis2D          See above.
+FitCircle               Fits a circle to a set of points in the 2D plane.
+ModInt                  Computes the residue of a real number w.r.t. an interval.
+Model_DoG3D_Ell         3D modelling of a layer with elliptical DoG.
    Function_DoG3D_Ell   Elliptical 3D DoG function.
    MyR2                 See above.
-Model_DoG3D_Cir   3D modelling of a layer with circular DoG.
+Model_DoG3D_Cir         3D modelling of a layer with circular DoG.
    Function_DoG3D_Cir   Circular 3D DoG function.
    MyR2                 See above.
-DataModel      Finds the center and radius of the raw data.
-   MyStr2Num      See above.
+DataModel               Finds the center and radius of the raw data.
+   MyStr2Num            See above.
    DataMissingValues    See above.
-   ModelAxis3D       See above.
-   FitCircle      See above.
+   ModelAxis3D          See above.
+   FitCircle            See above.
    Model_DoG3D_Cir      See above.
    MyFindPeaks          See above.
-DataTransform     Transforms all the layers to a common grid.
-DataExport     Exports the transformed layers in the original and matrix format.
+DataTransform           Transforms all the layers to a common grid.
+DataExport              Exports the transformed layers in the original and matrix format.
