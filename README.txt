@@ -4,7 +4,8 @@ Language       MATLAB
 Author         József Vass <jozsef.vass@outlook.com>
 Project for    Andrew Symons <andrewsymons@gmail.com>
                Joos Meyer <joos.meyer@gmail.com>
-Version date   Oct. 20, 2020
+Version date   Jul. 2, 2021
+MATLAB         R2021a
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 Purpose
 ‾‾‾‾‾‾‾
@@ -85,3 +86,4 @@ DataModel               Finds the center and radius of the raw data.
    MyFindPeaks          See above.
 DataTransform           Transforms all the layers to a common grid.
 DataExport              Exports the transformed layers in the original and matrix format.
+   TabSep               Unions cell elements with a tab separator.

@@ -36,19 +36,14 @@ Anum = inctable{fnmind, 7};
 Bnum = inctable{fnmind, 8};
 
 % Importing the data file:
-T = readtable([ dataloccsv, '/', fnm2 ]);
+T = readtable([ dataloccsv, '\', fnm2 ]);
+Tc = table2cell(T);
 mfun = @(s) MyStr2Num(s);
 
 layers = {};
 for u = 1:2:21 % 3: layers
-	su = T{(2 + u):23:(2 + u + (Bnum-1)*23), 1};
-	layeru = [];
-	for v = 1:Bnum % 4: scan slice
-		suv = strsplit(su{v});
-		muv = cellfun(mfun, suv(1:(end-1)));	
-		layeru = [ layeru; muv ];
-	end % 4
-	layers{end+1} = layeru;
+	su = Tc((2 + u):23:(2 + u + (Bnum-1)*23), :);
+	layers{end+1} = cell2mat(cellfun(mfun, su, 'UniformOutput', false));
 end % 3
 
 % Handle missing values by averaging neighbors:

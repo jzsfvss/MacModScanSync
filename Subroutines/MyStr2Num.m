@@ -7,8 +7,12 @@ function res = MyStr2Num(s)
 % Output:
 % res 			Either the number in the string or 0 for 'n/a'.
 
-if strcmp(s, 'n/a')
-	res = 0;
+if ~ischar(s)
+	res = s;
 else
-	res = str2num(s);
+	if strcmp(s, 'n/a')
+		res = 0;
+	else
+		res = str2num(s);
+	end
 end

@@ -28,7 +28,7 @@ n = size(D, 1);
 files = {};
 
 % Creating the increments table:
-if (eit) % 1
+if (eit) % 0
 
 % Finding all .csv file names:
 for i = 1:n % 1
@@ -51,7 +51,7 @@ Binc = Ainc;
 Anum = Ainc;
 Bnum = Ainc;
 
-for i = 1:nf % 2
+for i = 1:nf % 3
 
 fni = files{i};
 fni2 = strsplit(fni, '.');
@@ -60,13 +60,13 @@ fnip = strsplit(fni2{1}, '_');
 Filename{end+1, 1} = fni2{1};
 ID(end+1) = str2num(fnip{1});
 Visit(end+1) = str2num(fnip{2});
-if strcmp(fnip{3}, 'od') % 3
+if strcmp(fnip{3}, 'od') % 4
 	Eye = [ Eye, 'R' ];
-else % 3
+else % 4
 	Eye = [ Eye, 'L' ];
-end % 3
+end % 4
 
-end % 2
+end % 3
 
 ID = ID';
 Visit = Visit';
@@ -82,7 +82,7 @@ cd('..');
 rt = toc;
 fprintf([ '\bdone in ', num2str(rt, '%.2f'), ' secs.\n' ]);
 
-end % 1
+end % 0
 
 % Selecting which file to import:
 if isproc
@@ -171,19 +171,31 @@ disp(' ');
 disp([ 'Importing <', fnm, '>...' ]);
 tic;
 
-T = readtable([ dataloccsv, '/', fnm2 ]);
-mfun = @(s) MyStr2Num(s);
+T = readtable([ dataloccsv, '\', fnm2 ]);
+Tc = table2cell(T);
+mfun = @(c) MyStr2Num(c);
+
+if size(T, 2) > 1 % 0
+
+for i = 1:2:21 % 1: layers
+	si = Tc((2 + i):23:(2 + i + (Bnum-1)*23), :);
+	layers{end+1} = cell2mat(cellfun(mfun, si, 'UniformOutput', false));
+end % 1
+
+else % 0
 
 for i = 1:2:21 % 1: layers
 	si = T{(2 + i):23:(2 + i + (Bnum-1)*23), 1};
 	layeri = [];
 	for j = 1:Bnum % 2: scan slice
 		sij = strsplit(si{j});
-		mij = cellfun(mfun, sij(1:(end-1)));	
+		mij = cellfun(mfun, sij(1:end));
 		layeri = [ layeri; mij ];
 	end % 2
 	layers{end+1} = layeri;
 end % 1
+
+end % 0
 
 inctable2 = inctable;
 

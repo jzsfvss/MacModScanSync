@@ -12,11 +12,22 @@ function res = DataExport(inctable, fnmind, dataloc, T, layersm2)
 % res 			Boolean for whether the export was successful.
 
 % Initialization:
-T2 = T;
 Bnum = inctable{fnmind, 8};
 fnm0 = inctable{fnmind, 1};
 fnm = [ fnm0{1}, '.xls' ];
 res = 1;
+
+% T2 = T;
+T2 = cell(size(T, 1), 1);
+Tc = readcell([ dataloc, '/csv/', fnm0{1}, '.csv' ]);
+Tc = Tc(2:end, :);
+Tc{1, 3} = datetime(Tc{1, 3}, 'InputFormat', 'dd-MMM-yyyy HH:mm:ss', 'Format', 'M/dd/yyyy');
+Tc{1, 7} = datetime(Tc{1, 7}, 'InputFormat', 'dd-MMM-yyyy HH:mm:ss', 'Format', 'M/dd/yyyy');
+
+ln1 = TabSep(Tc(1, :));
+for i = 1:23:(1 + (Bnum-1)*23)
+	T2{i} = ln1;
+end
 
 k = 0;
 for i = 1:2:21 % 1: layers
@@ -31,7 +42,9 @@ for i = 1:2:21 % 1: layers
 		si{j, 1} = sij;
 	end % 2
 
-	T2{(2 + i):23:(2 + i + (Bnum-1)*23), 1} = si;
+	indsi = (2 + i):23:(2 + i + (Bnum-1)*23);
+	T2(indsi - 1) = TabSep(Tc(indsi - 1, :)); % labels
+	T2(indsi) = si; % values
 end % 1
 
 % Export all layers as one file in the original format:
@@ -46,8 +59,8 @@ for i = 1:ls0
 end
 fprintf(fileID, '\t\n');
 
-ln = T2{1,1};
-ln = ln{1};
+ln = T2{1, 1};
+% ln = ln{1};
 ln = strsplit(ln, '\t');
 ln = ln{1}; % Lastname.
 lnl = length(ln);
@@ -55,14 +68,16 @@ nr = size(T2, 1);
 
 for i = 1:nr % 1
 	si = T2{i, 1};
-	si = si{1};
+	% si = si{1};
 	fprintf(fileID, '%s\n', si);
 
-	if (strcmp(si(1:lnl), ln) == 1) % 2
+	if ~isempty(si) % 4
+	if strcmp(si(1:lnl), ln) % 2
 		j = 0;
 	else % 2
 		j = j+1;
 	end % 2
+	end % 4
 
 	if ((mod(j, 2) == 0) && (j ~= 0)) % 3
 		fprintf(fileID, '\t\n');

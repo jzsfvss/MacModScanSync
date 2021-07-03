@@ -87,7 +87,7 @@ disp(' ');
 % cprintf('black', [ repmat(num2str(char(95)), 1, 63), '\n' ]);
 cprintf([ '*', ct9 ], 'Macula Modeller and Scan Synchronizer ');
 cprintf('black', '| ');
-cprintf([ '*', ct8 ], 'Version 8 ');
+cprintf([ '*', ct8 ], 'Version 9 ');
 cprintf('black', '| ');
 cprintf([ '*', ct10 ], [ 'J', num2str(char(243)), 'zsef Vass\n' ]);
 % cprintf('black', [ repmat('‾', 1, 63), '\n' ]);
@@ -147,7 +147,7 @@ else % 1
 	inctable = [];
 end % 1
 
-disp(' ');
+% disp(' ');
 [ layers, fnm, fnmind, inctable, impsucc ] = DataImport(datalocxls0, 2, inctable);
 if (impsucc == 0)
 	disp(' ');
@@ -264,6 +264,7 @@ end % 2
 end % 1
 
 % Plotting:
+% size(layersh3)
 h = PlotLayer(fnm, lnl, optra, ilay, layersm, layersh, layersh2, layersh3, layersh4, Anum, Bnum, Ainc, Binc);
 
 beep on
@@ -273,7 +274,8 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 4
-	export_fig tmp -png -transparent -m3;
+	% export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	if (ilay < 10)
 		zer = '0';
 	else
@@ -413,7 +415,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 1
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	fnmp = [ 'Fig_', fnmmod, '_', fnmimg ];
 	movefile('tmp.png', [ '.\Plots\', fnmp, '.png' ]);		
 	disp('Figure saved to file:');
@@ -513,7 +515,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 1
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	if (sel < 10) % 2
 		zer = '0';
 	else % 2
@@ -571,7 +573,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 4
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	fnmp = [ 'Fig_', replace(fnm(1:(end-4)), '_', '-'), '_R02.NFL_axis' ];
 	movefile('tmp.png', [ '.\Plots\', fnmp, '.png' ]);
 	disp('Figure saved to file:');
@@ -658,7 +660,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 4
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	fnmp = [ 'Fig_', replace(fnm(1:(end-4)), '_', '-'), '_R02.NFL_ellipse' ];
 	movefile('tmp.png', [ '.\Plots\', fnmp, '.png' ]);
 	disp('Figure saved to file:');
@@ -794,7 +796,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 4
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	fnmp = [ 'Fig_', replace(fnm(1:(end-4)), '_', '-'), '_R02.NFL_ellmodel' ];
 	movefile('tmp.png', [ '.\Plots\', fnmp, '.png' ]);
 	disp('Figure saved to file:');
@@ -1017,7 +1019,7 @@ beep off
 disp(' ');
 opt0 = input('Save plot? y/n=1/0 ');
 if (opt0) % 4
-	export_fig tmp -png -transparent -m3;
+	export_fig tmp -png -transparent -silent -m3;
 	fnmp = [ 'Fig_', replace(fnm(1:(end-4)), '_', '-'), '_R', num2str(ilay), '.', lns{ilay}, '_cirmodel' ];
 	movefile('tmp.png', [ '.\Plots\', fnmp, '.png' ]);
 	disp('Figure saved to file:');
